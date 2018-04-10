@@ -8,8 +8,6 @@ import (
 	"fmt"
 	"sync"
 	"test2/roundrobin"
-
-	_ "github.com/denisenkom/go-mssqldb"
 )
 
 func main() {
