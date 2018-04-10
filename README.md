@@ -7,26 +7,22 @@ package main
 import (
 	"fmt"
 	"sync"
-	"test2/roundrobin"
+
+	"github.com/sbabiv/roundrobin"
 )
 
 func main() {
-	source := []interface{}{
-		1,
-		2,
-		3,
-	}
-
+	source := []interface{}{1, 2, 3}
 	b := roundrobin.New(source)
 	wc := sync.WaitGroup{}
 
-	for i := 0; i < 9; i++ {
+	for i := 0; i < 1000; i++ {
 		wc.Add(1)
-		go func(blr *roundrobin.Balancer) {
-			v, _ := blr.Pick()
+		go func() {
+			v, _ := b.Pick()
 			fmt.Printf("%v\n", v.(int))
 			wc.Done()
-		}(b)
+		}()
 	}
 
 	wc.Wait()
