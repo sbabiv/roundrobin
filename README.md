@@ -1,7 +1,7 @@
 # roundrobin
 Golang round-robin
 
-```
+```javascript
 package main
 
 import (
