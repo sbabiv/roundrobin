@@ -1,8 +1,7 @@
-package roundrobin_test
+package roundrobin
 
 import (
 	"sync"
-	"test2/roundrobin"
 	"testing"
 )
 
@@ -10,7 +9,7 @@ func TestRoundrobin(t *testing.T) {
 	m := make(map[int]int, 5)
 	mu := new(sync.Mutex)
 	wg := sync.WaitGroup{}
-	b := roundrobin.New([]interface{}{
+	b := New([]interface{}{
 		1,
 		2,
 		3,
